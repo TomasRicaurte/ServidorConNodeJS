@@ -6,12 +6,15 @@ const chalk = require('chalk');
 const host = 'localhost';
 const puerto = 8000;
 
-const servidor = http.createServer((req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  const respuesta = JSON.stringify({ nombre: 'Tomas Ricaurte', mensaje: 'Hola desde el servidor de prueba' });
-  res.end(respuesta);
+const server = http.createServer((req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    const miInfo = {
+        nombre: "Tomas Ricaurte",
+        mensaje: "Hola desde el servidor de prueba",
+    };
+    res.end(JSON.stringify(miInfo));
 });
 
-servidor.listen(puerto, host, () => {
+server.listen(puerto, host, () => {
   console.log(chalk.green(`El servidor está escuchando en http://${host}:${puerto}`));
 });
